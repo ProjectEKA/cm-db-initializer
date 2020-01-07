@@ -7,6 +7,31 @@
    http://www.liquibase.org/xml/ns/dbchangelog
    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
 
+    <changeSet id="202001071921" author="Chethan, Angshu" context="POC">
+        <preConditions>
+            <not>
+                <tableExists tableName="discovery_request" />
+            </not>
+        </preConditions>
+        <comment>Add DiscoveryRequest table</comment>
 
+        <createTable tableName="discovery_request">
+            <column name="id" autoIncrement="true" type="BIGINT">
+                <constraints primaryKey="true" />
+            </column>
+            <column name="transaction_id" type="VARCHAR(50)">
+                <constraints nullable="false" />
+            </column>
+            <column name="patient_id" type="VARCHAR(50)">
+                <constraints nullable="false" />
+            </column>
+            <column name="hip_id" type="VARCHAR(50)">
+                <constraints nullable="false" />
+            </column>
+            <column name="timestamp" type="DATETIME" defaultValueDate="CURRENT_TIMESTAMP">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+    </changeSet>
 
 </databaseChangeLog>
