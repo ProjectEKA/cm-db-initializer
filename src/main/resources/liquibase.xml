@@ -34,4 +34,57 @@
         </createTable>
     </changeSet>
 
+    <changeSet id="202001121105" author="Apoorva" context="POC">
+        <preConditions>
+            <not>
+                <tableExists tableName="link_reference" />
+            </not>
+        </preConditions>
+        <comment>Add link reference table</comment>
+
+        <createTable tableName="link_reference">
+            <column name="id" autoIncrement="true" type="BIGINT">
+                <constraints primaryKey="true" />
+            </column>
+            <column name="patient_link_reference" type="JSON">
+                <constraints nullable="false" />
+            </column>
+            <column name="hip_id" type="VARCHAR(50)">
+                <constraints nullable="false" />
+            </column>
+            <column name="timestamp" type="DATETIME" defaultValueDate="CURRENT_TIMESTAMP">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="202001131305" author="Apoorva" context="POC">
+        <preConditions>
+            <not>
+                <tableExists tableName="link" />
+            </not>
+        </preConditions>
+        <comment>Add link reference table</comment>
+
+        <createTable tableName="link">
+            <column name="id" autoIncrement="true" type="BIGINT">
+                <constraints primaryKey="true" />
+            </column>
+            <column name="hip_id" type="VARCHAR(50)">
+                <constraints nullable="false" />
+            </column>
+            <column name="consent_manager_user_id" type="VARCHAR(50)">
+                <constraints nullable="false" />
+            </column>
+            <column name="link_reference" type="VARCHAR(50)">
+                <constraints nullable="false" />
+            </column>
+            <column name="patient" type="JSON">
+                <constraints nullable="false" />
+            </column>
+            <column name="timestamp" type="DATETIME" defaultValueDate="CURRENT_TIMESTAMP">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+    </changeSet>
 </databaseChangeLog>
