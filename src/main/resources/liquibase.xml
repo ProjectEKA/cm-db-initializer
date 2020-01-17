@@ -87,4 +87,35 @@
             </column>
         </createTable>
     </changeSet>
+
+
+    <changeSet id="202001161930" author="angshu" context="POC">
+        <preConditions>
+            <not>
+                <tableExists tableName="consent_request" />
+            </not>
+        </preConditions>
+        <comment>Add consent_request table</comment>
+
+        <createTable tableName="consent_request">
+            <column name="id" autoIncrement="true" type="BIGINT">
+                <constraints primaryKey="true" />
+            </column>
+            <column name="request_id" type="VARCHAR(50)">
+                <constraints nullable="false" />
+            </column>
+            <column name="patient_id" type="VARCHAR(50)">
+                <constraints nullable="false" />
+            </column>
+            <column name="status" type="VARCHAR(20)">
+                <constraints nullable="false" />
+            </column>
+            <column name="details" type="JSON">
+                <constraints nullable="false" />
+            </column>
+            <column name="timestamp" type="DATETIME" defaultValueDate="CURRENT_TIMESTAMP">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+    </changeSet>
 </databaseChangeLog>
