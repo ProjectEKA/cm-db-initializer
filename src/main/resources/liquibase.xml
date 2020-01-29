@@ -118,4 +118,37 @@
             </column>
         </createTable>
     </changeSet>
+
+    <changeSet id="202001222239" author="Chethan" context="POC">
+        <preConditions>
+            <not>
+                <tableExists tableName="consent_artefact" />
+            </not>
+        </preConditions>
+        <comment>Add consent_artefact table</comment>
+
+        <createTable tableName="consent_artefact">
+            <column name="id" autoIncrement="true" type="BIGINT">
+                <constraints primaryKey="true" />
+            </column>
+            <column name="consent_artefact_id" type="VARCHAR(50)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="consent_request_id" type="VARCHAR(50)">
+                <constraints nullable="false" />
+            </column>
+            <column name="patient_id" type="VARCHAR(50)">
+                <constraints nullable="false" />
+            </column>
+            <column name="consent_artefact" type="JSON">
+                <constraints nullable="false" />
+            </column>
+            <column name="signature" type="bytea">
+                <constraints nullable="false" />
+            </column>
+            <column name="timestamp" type="DATETIME" defaultValueDate="CURRENT_TIMESTAMP">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+    </changeSet>
 </databaseChangeLog>
