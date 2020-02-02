@@ -151,4 +151,46 @@
             </column>
         </createTable>
     </changeSet>
+
+    <changeSet id="202002012300" author="angshu" context="POC">
+        <renameColumn newColumnName="date_created"
+                      oldColumnName="timestamp"
+                      tableName="consent_artefact"/>
+    </changeSet>
+    <changeSet id="202002012305" author="angshu" context="POC">
+        <createIndex indexName="idx_consent_artefact_id"
+                     tableName="consent_artefact"
+                     unique="true">
+            <column name="consent_artefact_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet id="202002012307" author="angshu" context="POC">
+        <createIndex indexName="idx_ca_request_id"
+                     tableName="consent_artefact">
+            <column name="consent_request_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet id="202002012308" author="angshu" context="POC">
+        <createIndex indexName="idx_cr_request_id"
+                     tableName="consent_request">
+            <column name="request_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet id="202002012311" author="angshu" context="POC">
+        <modifyDataType columnName="signature"
+                        newDataType="VARCHAR2"
+                        tableName="consent_artefact"/>
+    </changeSet>
+    <changeSet id="202002012349" author="angshu" context="POC">
+        <renameColumn newColumnName="date_created"
+                      oldColumnName="timestamp"
+                      tableName="consent_request"/>
+    </changeSet>
+    <changeSet id="202002012351" author="angshu" context="POC">
+        <addColumn tableName="consent_artefact">
+            <column name="status" type="VARCHAR(20)">
+            </column>
+        </addColumn>
+    </changeSet>
+
 </databaseChangeLog>
