@@ -193,4 +193,28 @@
         </addColumn>
     </changeSet>
 
+    <changeSet id="202002041401" author="apoorva" context="POC">
+        <preConditions>
+            <not>
+                <tableExists tableName="data_flow_request" />
+            </not>
+        </preConditions>
+        <comment>Add data_flow_request table</comment>
+
+        <createTable tableName="data_flow_request">
+            <column name="id" autoIncrement="true" type="BIGINT">
+                <constraints primaryKey="true" />
+            </column>
+            <column name="transaction_id" type="VARCHAR(50)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="data_flow_request" type="JSON">
+                <constraints nullable="false" />
+            </column>
+            <column name="timestamp" type="DATETIME" defaultValueDate="CURRENT_TIMESTAMP">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+    </changeSet>
+
 </databaseChangeLog>
