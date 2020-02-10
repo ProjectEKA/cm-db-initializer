@@ -192,5 +192,11 @@
             </column>
         </addColumn>
     </changeSet>
+    <changeSet id="202002101628" author="angshu" context="POC">
+        <addColumn tableName="consent_request">
+            <column name="date_modified" type="DATETIME" defaultValueDate="CURRENT_TIMESTAMP">
+            </column>
+        </addColumn>
+    </changeSet>
 
 </databaseChangeLog>
