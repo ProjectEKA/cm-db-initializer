@@ -189,12 +189,14 @@
     <changeSet id="202002012351" author="angshu" context="POC">
         <addColumn tableName="consent_artefact">
             <column name="status" type="VARCHAR(20)">
+                <constraints nullable="false" />
             </column>
         </addColumn>
     </changeSet>
     <changeSet id="202002101628" author="angshu" context="POC">
         <addColumn tableName="consent_request">
             <column name="date_modified" type="DATETIME" defaultValueDate="CURRENT_TIMESTAMP">
+                <constraints nullable="false" />
             </column>
         </addColumn>
     </changeSet>
