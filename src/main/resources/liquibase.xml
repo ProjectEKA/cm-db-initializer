@@ -225,4 +225,53 @@
         </createTable>
     </changeSet>
 
+    <changeSet id="202002130242" author="Chethan" context="POC">
+        <preConditions>
+            <not>
+                <tableExists tableName="hip_consent_artefact" />
+            </not>
+        </preConditions>
+        <comment>Add hip_consent_artefact table</comment>
+
+        <createTable tableName="hip_consent_artefact">
+            <column name="id" autoIncrement="true" type="BIGINT">
+                <constraints primaryKey="true" />
+            </column>
+            <column name="consent_artefact_id" type="VARCHAR(50)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="consent_request_id" type="VARCHAR(50)">
+                <constraints nullable="false" />
+            </column>
+            <column name="patient_id" type="VARCHAR(50)">
+                <constraints nullable="false" />
+            </column>
+            <column name="consent_artefact" type="JSON">
+                <constraints nullable="false" />
+            </column>
+            <column name="signature" type="VARCHAR2">
+                <constraints nullable="false" />
+            </column>
+            <column name="date_created" type="DATETIME" defaultValueDate="CURRENT_TIMESTAMP">
+                <constraints nullable="false" />
+            </column>
+            <column name="status" type="VARCHAR(20)">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="202002130243" author="Chethan" context="POC">
+        <createIndex indexName="idx_hip_consent_artefact_id"
+                     tableName="hip_consent_artefact"
+                     unique="true">
+            <column name="consent_artefact_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet id="202002130244" author="Chethan" context="POC">
+        <createIndex indexName="idx_hip_ca_request_id"
+                     tableName="hip_consent_artefact">
+            <column name="consent_request_id"/>
+        </createIndex>
+    </changeSet>
+
 </databaseChangeLog>
