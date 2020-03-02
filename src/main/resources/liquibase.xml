@@ -274,4 +274,33 @@
         </createIndex>
     </changeSet>
 
+    <changeSet id="202002281645" author="Ganesan" context="POC">
+        <preConditions>
+            <not>
+                <tableExists tableName="patient" />
+            </not>
+        </preConditions>
+        <comment>Add patient table</comment>
+
+        <createTable tableName="patient">
+            <column name="id" type="VARCHAR(150)">
+                <constraints primaryKey="true" />
+            </column>
+            <column name="first_name" type="VARCHAR(100)">
+                <constraints nullable="false" unique="false"/>
+            </column>
+            <column name="last_name" type="VARCHAR(100)">
+                <constraints nullable="true" />
+            </column>
+            <column name="gender" type="VARCHAR(5)">
+                <constraints nullable="false" />
+            </column>
+            <column name="date_of_birth" type="DATE">
+                <constraints nullable="true" />
+            </column>
+            <column name="phone_number" type="VARCHAR(15)">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+    </changeSet>
 </databaseChangeLog>
