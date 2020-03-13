@@ -303,4 +303,25 @@
             </column>
         </createTable>
     </changeSet>
+
+    <changeSet id="202003121440" author="Chethan" context="POC">
+        <preConditions>
+            <not>
+                <tableExists tableName="transaction_pin" />
+            </not>
+        </preConditions>
+        <comment>Add transaction_pin table</comment>
+
+        <createTable tableName="transaction_pin">
+            <column name="id" autoIncrement="true" type="BIGINT">
+                <constraints primaryKey="true" />
+            </column>
+            <column name="patient_id" type="VARCHAR(150)">
+                <constraints nullable="false" />
+            </column>
+            <column name="pin" type="VARCHAR2">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+    </changeSet>
 </databaseChangeLog>
