@@ -324,4 +324,12 @@
             </column>
         </createTable>
     </changeSet>
+
+    <changeSet id="202003181330" author="Apoorva" context="POC">
+        <addColumn tableName="consent_artefact">
+            <column name="date_modified" type="DATETIME" defaultValueDate="CURRENT_TIMESTAMP">
+                <constraints nullable="false" />
+            </column>
+        </addColumn>
+    </changeSet>
 </databaseChangeLog>
