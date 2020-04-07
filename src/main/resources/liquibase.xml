@@ -332,4 +332,28 @@
             </column>
         </addColumn>
     </changeSet>
+
+    <changeSet id="202003301500" author="apoorva" context="POC">
+        <preConditions>
+            <not>
+                <tableExists tableName="health_info_notification" />
+            </not>
+        </preConditions>
+        <comment>Add health_info_notification table</comment>
+
+        <createTable tableName="health_info_notification">
+            <column name="id" autoIncrement="true" type="BIGINT">
+                <constraints primaryKey="true" />
+            </column>
+            <column name="transaction_id" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="notification_request" type="JSON">
+                <constraints nullable="false" />
+            </column>
+            <column name="date_created" type="DATETIME" defaultValueDate="CURRENT_TIMESTAMP">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+    </changeSet>
 </databaseChangeLog>
