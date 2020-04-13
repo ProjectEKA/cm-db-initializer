@@ -356,4 +356,34 @@
             </column>
         </createTable>
     </changeSet>
+
+    <changeSet id="202004101530" author="apoorva" context="POC">
+        <dropColumn tableName="patient">
+            <column name="first_name" type="VARCHAR(100)">
+                <constraints nullable="false" unique="false"/>
+            </column>
+        </dropColumn>
+        <dropColumn tableName="patient">
+            <column name="last_name" type="VARCHAR(100)">
+                <constraints nullable="true" />
+            </column>
+        </dropColumn>
+        <dropColumn tableName="patient">
+            <column name="date_of_birth" type="DATE">
+                <constraints nullable="true" />
+            </column>
+        </dropColumn>
+        <addColumn tableName="patient">
+            <column name="name" type="VARCHAR(100)">
+                <constraints unique="false"/>
+            </column>
+        </addColumn>
+        <addColumn tableName="patient">
+            <column name="year_of_birth" type="BIGINT">
+                <constraints nullable="true" unique="false"/>
+            </column>
+        </addColumn>
+
+    </changeSet>
+
 </databaseChangeLog>
