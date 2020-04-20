@@ -379,4 +379,11 @@
 
     </changeSet>
 
+    <changeSet author="Neeraj" id="20200417502">
+        <renameColumn newColumnName="request_id"
+                      oldColumnName="transaction_id"
+                      tableName="discovery_request"/>
+    </changeSet>
+
+
 </databaseChangeLog>
