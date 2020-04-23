@@ -393,5 +393,18 @@
         </addColumn>
     </changeSet>
 
+    <changeSet author="Apoorva" id="202004231710">
+        <renameColumn newColumnName="transaction_id"
+                      oldColumnName="request_id"
+                      tableName="discovery_request"/>
+    </changeSet>
+
+    <changeSet id="202004231715" author="apoorva" context="POC">
+        <addColumn tableName="discovery_request">
+            <column name="request_id" type="VARCHAR(50)" defaultValue="">
+                <constraints nullable="false" />
+            </column>
+        </addColumn>
+    </changeSet>
 
 </databaseChangeLog>
