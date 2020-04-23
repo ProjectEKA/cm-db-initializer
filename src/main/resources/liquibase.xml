@@ -385,5 +385,13 @@
                       tableName="discovery_request"/>
     </changeSet>
 
+    <changeSet id="202004221835" author="apoorva" context="POC">
+        <addColumn tableName="data_flow_request">
+            <column name="consent_artefact_id" type="VARCHAR(50)">
+                <constraints nullable="false" />
+            </column>
+        </addColumn>
+    </changeSet>
+
 
 </databaseChangeLog>
