@@ -387,7 +387,7 @@
 
     <changeSet id="202004221835" author="apoorva" context="POC">
         <addColumn tableName="data_flow_request">
-            <column name="consent_artefact_id" type="VARCHAR(50)">
+            <column name="consent_artefact_id" type="VARCHAR(50)" defaultValue="">
                 <constraints nullable="false" />
             </column>
         </addColumn>
