@@ -407,4 +407,11 @@
         </addColumn>
     </changeSet>
 
+    <changeSet id="202004241140" author="apoorva" context="POC">
+        <addColumn tableName="link_reference">
+            <column name="request_id" type="VARCHAR(50)" defaultValue="">
+                <constraints nullable="false" />
+            </column>
+        </addColumn>
+    </changeSet>
 </databaseChangeLog>
