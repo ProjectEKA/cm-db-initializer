@@ -422,4 +422,17 @@
             </column>
         </addColumn>
     </changeSet>
+
+    <changeSet author="Apoorva" id="202004241530">
+        <renameColumn newColumnName="consent_request_id"
+                      oldColumnName="request_id"
+                      tableName="consent_request"/>
+
+        <addColumn tableName="consent_request">
+            <column name="request_id" type="VARCHAR(50)" defaultValue="">
+                <constraints nullable="false" />
+            </column>
+        </addColumn>
+    </changeSet>
+
 </databaseChangeLog>
