@@ -414,4 +414,12 @@
             </column>
         </addColumn>
     </changeSet>
+
+    <changeSet id="202004241330" author="apoorva" context="POC">
+        <addColumn tableName="transaction_pin">
+            <column name="request_id" type="VARCHAR(50)" defaultValue="">
+                <constraints nullable="false" />
+            </column>
+        </addColumn>
+    </changeSet>
 </databaseChangeLog>
