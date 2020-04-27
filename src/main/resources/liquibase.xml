@@ -393,5 +393,12 @@
         </addColumn>
     </changeSet>
 
+    <changeSet id="202004271221" author="ajayvk" context="POC">
+        <addColumn tableName="patient">
+            <column name="unverified_identifiers" type="JSON">
+                <constraints nullable="true" />
+            </column>
+        </addColumn>
+    </changeSet>
 
 </databaseChangeLog>
