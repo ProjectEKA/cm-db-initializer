@@ -426,4 +426,33 @@
         </addColumn>
     </changeSet>
 
+    <changeSet id="202001071922" author="Leela, Zafar" context="POC">
+        <preConditions>
+            <not>
+                <tableExists tableName="locked_users"/>
+            </not>
+        </preConditions>
+        <comment>Locked Users table</comment>
+
+        <createTable tableName="locked_users">
+
+            <column name="patient_id" type="VARCHAR(50)">
+                <constraints primaryKey="true"/>
+            </column>
+
+            <column name="invalid_attempts" type="INT">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="isLocked" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="locked_time" type="DATETIME">
+                <constraints nullable="true"/>
+            </column>
+
+        </createTable>
+    </changeSet>
+
 </databaseChangeLog>
