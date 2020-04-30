@@ -1,35 +1,32 @@
 <databaseChangeLog
         xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
-        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
-   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
-   http://www.liquibase.org/xml/ns/dbchangelog
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
 
     <changeSet id="202001071921" author="Chethan, Angshu" context="POC">
         <preConditions>
             <not>
-                <tableExists tableName="discovery_request" />
+                <tableExists tableName="discovery_request"/>
             </not>
         </preConditions>
         <comment>Add DiscoveryRequest table</comment>
 
         <createTable tableName="discovery_request">
             <column name="id" autoIncrement="true" type="BIGINT">
-                <constraints primaryKey="true" />
+                <constraints primaryKey="true"/>
             </column>
             <column name="transaction_id" type="VARCHAR(50)">
-                <constraints nullable="false" />
+                <constraints nullable="false"/>
             </column>
             <column name="patient_id" type="VARCHAR(50)">
-                <constraints nullable="false" />
+                <constraints nullable="false"/>
             </column>
             <column name="hip_id" type="VARCHAR(50)">
-                <constraints nullable="false" />
+                <constraints nullable="false"/>
             </column>
             <column name="timestamp" type="DATETIME" defaultValueDate="CURRENT_TIMESTAMP">
-                <constraints nullable="false" />
+                <constraints nullable="false"/>
             </column>
         </createTable>
     </changeSet>
@@ -37,23 +34,23 @@
     <changeSet id="202001121105" author="Apoorva" context="POC">
         <preConditions>
             <not>
-                <tableExists tableName="link_reference" />
+                <tableExists tableName="link_reference"/>
             </not>
         </preConditions>
         <comment>Add link reference table</comment>
 
         <createTable tableName="link_reference">
             <column name="id" autoIncrement="true" type="BIGINT">
-                <constraints primaryKey="true" />
+                <constraints primaryKey="true"/>
             </column>
             <column name="patient_link_reference" type="JSON">
-                <constraints nullable="false" />
+                <constraints nullable="false"/>
             </column>
             <column name="hip_id" type="VARCHAR(50)">
-                <constraints nullable="false" />
+                <constraints nullable="false"/>
             </column>
             <column name="timestamp" type="DATETIME" defaultValueDate="CURRENT_TIMESTAMP">
-                <constraints nullable="false" />
+                <constraints nullable="false"/>
             </column>
         </createTable>
     </changeSet>
@@ -61,29 +58,29 @@
     <changeSet id="202001131305" author="Apoorva" context="POC">
         <preConditions>
             <not>
-                <tableExists tableName="link" />
+                <tableExists tableName="link"/>
             </not>
         </preConditions>
         <comment>Add link reference table</comment>
 
         <createTable tableName="link">
             <column name="id" autoIncrement="true" type="BIGINT">
-                <constraints primaryKey="true" />
+                <constraints primaryKey="true"/>
             </column>
             <column name="hip_id" type="VARCHAR(50)">
-                <constraints nullable="false" />
+                <constraints nullable="false"/>
             </column>
             <column name="consent_manager_user_id" type="VARCHAR(50)">
-                <constraints nullable="false" />
+                <constraints nullable="false"/>
             </column>
             <column name="link_reference" type="VARCHAR(50)">
-                <constraints nullable="false" />
+                <constraints nullable="false"/>
             </column>
             <column name="patient" type="JSON">
-                <constraints nullable="false" />
+                <constraints nullable="false"/>
             </column>
             <column name="timestamp" type="DATETIME" defaultValueDate="CURRENT_TIMESTAMP">
-                <constraints nullable="false" />
+                <constraints nullable="false"/>
             </column>
         </createTable>
     </changeSet>
@@ -92,29 +89,29 @@
     <changeSet id="202001161930" author="angshu" context="POC">
         <preConditions>
             <not>
-                <tableExists tableName="consent_request" />
+                <tableExists tableName="consent_request"/>
             </not>
         </preConditions>
         <comment>Add consent_request table</comment>
 
         <createTable tableName="consent_request">
             <column name="id" autoIncrement="true" type="BIGINT">
-                <constraints primaryKey="true" />
+                <constraints primaryKey="true"/>
             </column>
             <column name="request_id" type="VARCHAR(50)">
-                <constraints nullable="false" />
+                <constraints nullable="false"/>
             </column>
             <column name="patient_id" type="VARCHAR(50)">
-                <constraints nullable="false" />
+                <constraints nullable="false"/>
             </column>
             <column name="status" type="VARCHAR(20)">
-                <constraints nullable="false" />
+                <constraints nullable="false"/>
             </column>
             <column name="details" type="JSON">
-                <constraints nullable="false" />
+                <constraints nullable="false"/>
             </column>
             <column name="timestamp" type="DATETIME" defaultValueDate="CURRENT_TIMESTAMP">
-                <constraints nullable="false" />
+                <constraints nullable="false"/>
             </column>
         </createTable>
     </changeSet>
@@ -122,32 +119,32 @@
     <changeSet id="202001222239" author="Chethan" context="POC">
         <preConditions>
             <not>
-                <tableExists tableName="consent_artefact" />
+                <tableExists tableName="consent_artefact"/>
             </not>
         </preConditions>
         <comment>Add consent_artefact table</comment>
 
         <createTable tableName="consent_artefact">
             <column name="id" autoIncrement="true" type="BIGINT">
-                <constraints primaryKey="true" />
+                <constraints primaryKey="true"/>
             </column>
             <column name="consent_artefact_id" type="VARCHAR(50)">
                 <constraints nullable="false" unique="true"/>
             </column>
             <column name="consent_request_id" type="VARCHAR(50)">
-                <constraints nullable="false" />
+                <constraints nullable="false"/>
             </column>
             <column name="patient_id" type="VARCHAR(50)">
-                <constraints nullable="false" />
+                <constraints nullable="false"/>
             </column>
             <column name="consent_artefact" type="JSON">
-                <constraints nullable="false" />
+                <constraints nullable="false"/>
             </column>
             <column name="signature" type="bytea">
-                <constraints nullable="false" />
+                <constraints nullable="false"/>
             </column>
             <column name="timestamp" type="DATETIME" defaultValueDate="CURRENT_TIMESTAMP">
-                <constraints nullable="false" />
+                <constraints nullable="false"/>
             </column>
         </createTable>
     </changeSet>
@@ -189,14 +186,14 @@
     <changeSet id="202002012351" author="angshu" context="POC">
         <addColumn tableName="consent_artefact">
             <column name="status" type="VARCHAR(20)">
-                <constraints nullable="false" />
+                <constraints nullable="false"/>
             </column>
         </addColumn>
     </changeSet>
     <changeSet id="202002101628" author="angshu" context="POC">
         <addColumn tableName="consent_request">
             <column name="date_modified" type="DATETIME" defaultValueDate="CURRENT_TIMESTAMP">
-                <constraints nullable="false" />
+                <constraints nullable="false"/>
             </column>
         </addColumn>
     </changeSet>
@@ -204,23 +201,23 @@
     <changeSet id="202002041401" author="apoorva" context="POC">
         <preConditions>
             <not>
-                <tableExists tableName="data_flow_request" />
+                <tableExists tableName="data_flow_request"/>
             </not>
         </preConditions>
         <comment>Add data_flow_request table</comment>
 
         <createTable tableName="data_flow_request">
             <column name="id" autoIncrement="true" type="BIGINT">
-                <constraints primaryKey="true" />
+                <constraints primaryKey="true"/>
             </column>
             <column name="transaction_id" type="VARCHAR(50)">
                 <constraints nullable="false" unique="true"/>
             </column>
             <column name="data_flow_request" type="JSON">
-                <constraints nullable="false" />
+                <constraints nullable="false"/>
             </column>
             <column name="timestamp" type="DATETIME" defaultValueDate="CURRENT_TIMESTAMP">
-                <constraints nullable="false" />
+                <constraints nullable="false"/>
             </column>
         </createTable>
     </changeSet>
@@ -228,35 +225,35 @@
     <changeSet id="202002130242" author="Chethan" context="POC">
         <preConditions>
             <not>
-                <tableExists tableName="hip_consent_artefact" />
+                <tableExists tableName="hip_consent_artefact"/>
             </not>
         </preConditions>
         <comment>Add hip_consent_artefact table</comment>
 
         <createTable tableName="hip_consent_artefact">
             <column name="id" autoIncrement="true" type="BIGINT">
-                <constraints primaryKey="true" />
+                <constraints primaryKey="true"/>
             </column>
             <column name="consent_artefact_id" type="VARCHAR(50)">
                 <constraints nullable="false" unique="true"/>
             </column>
             <column name="consent_request_id" type="VARCHAR(50)">
-                <constraints nullable="false" />
+                <constraints nullable="false"/>
             </column>
             <column name="patient_id" type="VARCHAR(50)">
-                <constraints nullable="false" />
+                <constraints nullable="false"/>
             </column>
             <column name="consent_artefact" type="JSON">
-                <constraints nullable="false" />
+                <constraints nullable="false"/>
             </column>
             <column name="signature" type="VARCHAR2">
-                <constraints nullable="false" />
+                <constraints nullable="false"/>
             </column>
             <column name="date_created" type="DATETIME" defaultValueDate="CURRENT_TIMESTAMP">
-                <constraints nullable="false" />
+                <constraints nullable="false"/>
             </column>
             <column name="status" type="VARCHAR(20)">
-                <constraints nullable="false" />
+                <constraints nullable="false"/>
             </column>
         </createTable>
     </changeSet>
@@ -277,29 +274,29 @@
     <changeSet id="202002281645" author="Ganesan" context="POC">
         <preConditions>
             <not>
-                <tableExists tableName="patient" />
+                <tableExists tableName="patient"/>
             </not>
         </preConditions>
         <comment>Add patient table</comment>
 
         <createTable tableName="patient">
             <column name="id" type="VARCHAR(150)">
-                <constraints primaryKey="true" />
+                <constraints primaryKey="true"/>
             </column>
             <column name="first_name" type="VARCHAR(100)">
                 <constraints nullable="false" unique="false"/>
             </column>
             <column name="last_name" type="VARCHAR(100)">
-                <constraints nullable="true" />
+                <constraints nullable="true"/>
             </column>
             <column name="gender" type="VARCHAR(5)">
-                <constraints nullable="false" />
+                <constraints nullable="false"/>
             </column>
             <column name="date_of_birth" type="DATE">
-                <constraints nullable="true" />
+                <constraints nullable="true"/>
             </column>
             <column name="phone_number" type="VARCHAR(15)">
-                <constraints nullable="false" />
+                <constraints nullable="false"/>
             </column>
         </createTable>
     </changeSet>
@@ -307,20 +304,20 @@
     <changeSet id="202003121440" author="Chethan" context="POC">
         <preConditions>
             <not>
-                <tableExists tableName="transaction_pin" />
+                <tableExists tableName="transaction_pin"/>
             </not>
         </preConditions>
         <comment>Add transaction_pin table</comment>
 
         <createTable tableName="transaction_pin">
             <column name="id" autoIncrement="true" type="BIGINT">
-                <constraints primaryKey="true" />
+                <constraints primaryKey="true"/>
             </column>
             <column name="patient_id" type="VARCHAR(150)">
-                <constraints nullable="false" unique="true" />
+                <constraints nullable="false" unique="true"/>
             </column>
             <column name="pin" type="VARCHAR2">
-                <constraints nullable="false" />
+                <constraints nullable="false"/>
             </column>
         </createTable>
     </changeSet>
@@ -328,7 +325,7 @@
     <changeSet id="202003181330" author="Apoorva" context="POC">
         <addColumn tableName="consent_artefact">
             <column name="date_modified" type="DATETIME" defaultValueDate="CURRENT_TIMESTAMP">
-                <constraints nullable="false" />
+                <constraints nullable="false"/>
             </column>
         </addColumn>
     </changeSet>
@@ -336,23 +333,23 @@
     <changeSet id="202003301500" author="apoorva" context="POC">
         <preConditions>
             <not>
-                <tableExists tableName="health_info_notification" />
+                <tableExists tableName="health_info_notification"/>
             </not>
         </preConditions>
         <comment>Add health_info_notification table</comment>
 
         <createTable tableName="health_info_notification">
             <column name="id" autoIncrement="true" type="BIGINT">
-                <constraints primaryKey="true" />
+                <constraints primaryKey="true"/>
             </column>
             <column name="transaction_id" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
             <column name="notification_request" type="JSON">
-                <constraints nullable="false" />
+                <constraints nullable="false"/>
             </column>
             <column name="date_created" type="DATETIME" defaultValueDate="CURRENT_TIMESTAMP">
-                <constraints nullable="false" />
+                <constraints nullable="false"/>
             </column>
         </createTable>
     </changeSet>
@@ -363,12 +360,12 @@
                       tableName="patient"/>
         <dropColumn tableName="patient">
             <column name="last_name" type="VARCHAR(100)">
-                <constraints nullable="true" />
+                <constraints nullable="true"/>
             </column>
         </dropColumn>
         <dropColumn tableName="patient">
             <column name="date_of_birth" type="DATE">
-                <constraints nullable="true" />
+                <constraints nullable="true"/>
             </column>
         </dropColumn>
         <addColumn tableName="patient">
@@ -388,10 +385,38 @@
     <changeSet id="202004221835" author="apoorva" context="POC">
         <addColumn tableName="data_flow_request">
             <column name="consent_artefact_id" type="VARCHAR(50)" defaultValue="">
-                <constraints nullable="false" />
+                <constraints nullable="false"/>
             </column>
         </addColumn>
     </changeSet>
 
+    <changeSet id="202001071922" author="Leela, Zafar" context="POC">
+        <preConditions>
+            <not>
+                <tableExists tableName="locked_users"/>
+            </not>
+        </preConditions>
+        <comment>Locked Users table</comment>
+
+        <createTable tableName="locked_users">
+
+            <column name="patient_id" type="VARCHAR(50)">
+                <constraints primaryKey="true"/>
+            </column>
+
+            <column name="invalid_attempts" type="INT">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="isLocked" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="locked_time" type="DATETIME">
+                <constraints nullable="true"/>
+            </column>
+
+        </createTable>
+    </changeSet>
 
 </databaseChangeLog>
