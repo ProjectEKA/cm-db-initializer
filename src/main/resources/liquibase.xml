@@ -393,5 +393,28 @@
         </addColumn>
     </changeSet>
 
+    <changeSet id="202005041455" author="gayatri_dheeraj" context="POC">
+        <preConditions>
+            <not>
+                <tableExists tableName="otp_attempt" />
+            </not>
+        </preConditions>
+        <comment>Add otp_attempt table</comment>
+
+        <createTable tableName="otp_attempt">
+            <column name="id" autoIncrement="true" type="BIGINT">
+                <constraints primaryKey="true" />
+            </column>
+            <column name="phone_number" type="VARCHAR(15)">
+                <constraints nullable="false" />
+            </column>
+            <column name="timestamp" type="TIMESTAMP" defaultValueDate="timezone('utc'::text, now())">
+                <constraints nullable="false" />
+            </column>
+            <column name="blocked" type="BOOLEAN" defaultValue="false">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+    </changeSet>
 
 </databaseChangeLog>
