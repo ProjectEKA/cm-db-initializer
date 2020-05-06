@@ -390,7 +390,7 @@
         </addColumn>
     </changeSet>
 
-    <changeSet id="202001071922" author="Leela, Zafar" context="POC">
+    <changeSet id="203001081901" author="Leela, Zafar" context="POC">
         <preConditions>
             <not>
                 <tableExists tableName="locked_users"/>
@@ -408,11 +408,11 @@
                 <constraints nullable="false"/>
             </column>
 
-            <column name="isLocked" type="BOOLEAN">
+            <column name="is_locked" type="BOOLEAN">
                 <constraints nullable="false"/>
             </column>
 
-            <column name="locked_time" type="DATETIME">
+            <column name="locked_time" type="VARCHAR(50)">
                 <constraints nullable="true"/>
             </column>
 
