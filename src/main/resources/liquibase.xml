@@ -390,7 +390,15 @@
         </addColumn>
     </changeSet>
 
-    <changeSet id="203001081901" author="Leela, Zafar" context="POC">
+    <changeSet id="202004271221" author="ajayvk" context="POC">
+        <addColumn tableName="patient">
+            <column name="unverified_identifiers" type="JSON">
+                <constraints nullable="true"/>
+            </column>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="202031076922" author="Leela, Zafar" context="POC">
         <preConditions>
             <not>
                 <tableExists tableName="locked_users"/>
@@ -413,42 +421,6 @@
             </column>
 
             <column name="locked_time" type="VARCHAR(50)">
-                <constraints nullable="true"/>
-            </column>
-        </createTable>
-    </changeSet>
-
-    <changeSet id="202004271221" author="ajayvk" context="POC">
-        <addColumn tableName="patient">
-            <column name="unverified_identifiers" type="JSON">
-                <constraints nullable="true"/>
-            </column>
-        </addColumn>
-    </changeSet>
-
-    <changeSet id="202001071922" author="Leela, Zafar" context="POC">
-        <preConditions>
-            <not>
-                <tableExists tableName="locked_users"/>
-            </not>
-        </preConditions>
-        <comment>Locked Users table</comment>
-
-        <createTable tableName="locked_users">
-
-            <column name="patient_id" type="VARCHAR(50)">
-                <constraints primaryKey="true"/>
-            </column>
-
-            <column name="invalid_attempts" type="INT">
-                <constraints nullable="false"/>
-            </column>
-
-            <column name="isLocked" type="BOOLEAN">
-                <constraints nullable="false"/>
-            </column>
-
-            <column name="locked_time" type="DATETIME">
                 <constraints nullable="true"/>
             </column>
 
