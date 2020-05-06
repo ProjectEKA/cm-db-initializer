@@ -415,6 +415,7 @@
                 <constraints nullable="false" />
             </column>
         </createTable>
+    </changeSet>
 
     <changeSet id="202004271221" author="ajayvk" context="POC">
         <addColumn tableName="patient">
