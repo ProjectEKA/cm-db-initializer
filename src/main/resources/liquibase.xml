@@ -417,6 +417,20 @@
         </createTable>
     </changeSet>
 
+    <changeSet author="dheeraj-gayatri" id="202005071149">
+        <renameColumn newColumnName="attempt_at"
+                      oldColumnName="timestamp"
+                      tableName="otp_attempt"/>
+    </changeSet>
+
+    <changeSet id="202005071152" author="dheeraj-gayatri" context="POC">
+        <addColumn tableName="otp_attempt">
+            <column name="action" type="VARCHAR(50)" defaultValue="">
+                <constraints nullable="false" />
+            </column>
+        </addColumn>
+    </changeSet>
+
     <changeSet id="202004271221" author="ajayvk" context="POC">
         <addColumn tableName="patient">
             <column name="unverified_identifiers" type="JSON">
