@@ -398,7 +398,7 @@
         </addColumn>
     </changeSet>
 
-    <changeSet id="202031076922" author="Leela, Zafar" context="POC">
+    <changeSet id="2020312798922" author="Leela, Zafar" context="POC">
         <preConditions>
             <not>
                 <tableExists tableName="locked_users"/>
@@ -424,6 +424,9 @@
                 <constraints nullable="true"/>
             </column>
 
+            <column name="first_invalid_attempt_time" type="VARCHAR(50)">
+                <constraints nullable="true"/>
+            </column>
         </createTable>
     </changeSet>
 
