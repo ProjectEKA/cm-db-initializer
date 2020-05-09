@@ -392,44 +392,6 @@
         </addColumn>
     </changeSet>
 
-    <changeSet id="202005041455" author="gayatri_dheeraj" context="POC">
-        <preConditions>
-            <not>
-                <tableExists tableName="otp_attempt" />
-            </not>
-        </preConditions>
-        <comment>Add otp_attempt table</comment>
-
-        <createTable tableName="otp_attempt">
-            <column name="id" autoIncrement="true" type="BIGINT">
-                <constraints primaryKey="true" />
-            </column>
-            <column name="phone_number" type="VARCHAR(15)">
-                <constraints nullable="false" />
-            </column>
-            <column name="timestamp" type="TIMESTAMP" defaultValueDate="timezone('utc'::text, now())">
-                <constraints nullable="false" />
-            </column>
-            <column name="blocked" type="BOOLEAN" defaultValue="false">
-                <constraints nullable="false" />
-            </column>
-        </createTable>
-    </changeSet>
-
-    <changeSet author="dheeraj-gayatri" id="202005071149">
-        <renameColumn newColumnName="attempt_at"
-                      oldColumnName="timestamp"
-                      tableName="otp_attempt"/>
-    </changeSet>
-
-    <changeSet id="202005071152" author="dheeraj-gayatri" context="POC">
-        <addColumn tableName="otp_attempt">
-            <column name="action" type="VARCHAR(50)" defaultValue="">
-              <constraints nullable="false" />
-            </column>
-        </addColumn>
-    </changeSet>
-              
     <changeSet author="Apoorva" id="202004231710">
         <renameColumn newColumnName="transaction_id"
                       oldColumnName="request_id"
@@ -476,4 +438,40 @@
         </addColumn>
     </changeSet>
 
+    <changeSet id="202003301500" author="dheeraj-gayatri" context="POC">
+        <preConditions>
+            <not>
+                <tableExists tableName="otp_attempt" />
+            </not>
+        </preConditions>
+        <comment>Add otp_attempt table</comment>
+
+        <createTable tableName="otp_attempt">
+            <column name="id" autoIncrement="true" type="BIGINT">
+                <constraints primaryKey="true" />
+            </column>
+            <column name="session_id" type="VARCHAR(50)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="cm_id" type="VARCHAR(50)">
+                <constraints nullable="true" />
+            </column>
+            <column name="identifier_type" type="VARCHAR(50)">
+                <constraints nullable="false" />
+            </column>
+            <column name="identifier_value" type="VARCHAR(50)">
+                <constraints nullable="false" />
+            </column>
+            <column name="attempt_at" type="DATETIME" defaultValueDate="timezone('utc'::text, now())">
+                <constraints nullable="false" />
+            </column>
+            <column name="status" type="VARCHAR(50)">
+                <constraints nullable="false" />
+            </column>
+            <column name="action" type="VARCHAR(50)">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+    </changeSet>
+    
 </databaseChangeLog>
