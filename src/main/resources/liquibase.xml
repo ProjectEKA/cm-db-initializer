@@ -373,7 +373,6 @@
                 <constraints nullable="true" unique="false"/>
             </column>
         </addColumn>
-
     </changeSet>
 
     <changeSet author="Neeraj" id="20200417502">
@@ -397,6 +396,7 @@
             </column>
         </addColumn>
     </changeSet>
+
 
     <changeSet id="2020312798922" author="Leela, Zafar" context="POC">
         <preConditions>
@@ -428,6 +428,52 @@
                 <constraints nullable="true"/>
             </column>
         </createTable>
+    </changeSet>
+  
+    <changeSet author="Apoorva" id="202004231710">
+        <renameColumn newColumnName="transaction_id"
+                      oldColumnName="request_id"
+                      tableName="discovery_request"/>
+    </changeSet>
+
+    <changeSet id="202004231715" author="apoorva" context="POC">
+        <addColumn tableName="discovery_request">
+            <column name="request_id" type="VARCHAR(50)" defaultValue="">
+                <constraints nullable="false" />
+            </column>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="202004241140" author="apoorva" context="POC">
+        <addColumn tableName="link_reference">
+            <column name="request_id" type="VARCHAR(50)" defaultValue="">
+                <constraints nullable="false" />
+            </column>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="202004241330" author="apoorva" context="POC">
+        <addColumn tableName="transaction_pin">
+            <column name="request_id" type="VARCHAR(50)" defaultValue="">
+                <constraints nullable="false" />
+            </column>
+        </addColumn>
+    </changeSet>
+
+    <changeSet author="Apoorva" id="202004271430">
+        <addColumn tableName="health_info_notification">
+            <column name="request_id" type="VARCHAR(50)" defaultValue="">
+                <constraints nullable="false" />
+            </column>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="202004271221" author="ajayvk" context="POC">
+        <addColumn tableName="patient">
+            <column name="unverified_identifiers" type="JSON">
+                <constraints nullable="true" />
+            </column>
+        </addColumn>
     </changeSet>
 
 </databaseChangeLog>
