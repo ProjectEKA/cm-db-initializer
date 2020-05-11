@@ -154,6 +154,7 @@
                       oldColumnName="timestamp"
                       tableName="consent_artefact"/>
     </changeSet>
+
     <changeSet id="202002012305" author="angshu" context="POC">
         <createIndex indexName="idx_consent_artefact_id"
                      tableName="consent_artefact"
@@ -161,28 +162,33 @@
             <column name="consent_artefact_id"/>
         </createIndex>
     </changeSet>
+
     <changeSet id="202002012307" author="angshu" context="POC">
         <createIndex indexName="idx_ca_request_id"
                      tableName="consent_artefact">
             <column name="consent_request_id"/>
         </createIndex>
     </changeSet>
+
     <changeSet id="202002012308" author="angshu" context="POC">
         <createIndex indexName="idx_cr_request_id"
                      tableName="consent_request">
             <column name="request_id"/>
         </createIndex>
     </changeSet>
+
     <changeSet id="202002012311" author="angshu" context="POC">
         <modifyDataType columnName="signature"
                         newDataType="VARCHAR2"
                         tableName="consent_artefact"/>
     </changeSet>
+
     <changeSet id="202002012349" author="angshu" context="POC">
         <renameColumn newColumnName="date_created"
                       oldColumnName="timestamp"
                       tableName="consent_request"/>
     </changeSet>
+
     <changeSet id="202002012351" author="angshu" context="POC">
         <addColumn tableName="consent_artefact">
             <column name="status" type="VARCHAR(20)">
@@ -190,6 +196,7 @@
             </column>
         </addColumn>
     </changeSet>
+
     <changeSet id="202002101628" author="angshu" context="POC">
         <addColumn tableName="consent_request">
             <column name="date_modified" type="DATETIME" defaultValueDate="CURRENT_TIMESTAMP">
@@ -257,6 +264,7 @@
             </column>
         </createTable>
     </changeSet>
+
     <changeSet id="202002130243" author="Chethan" context="POC">
         <createIndex indexName="idx_hip_consent_artefact_id"
                      tableName="hip_consent_artefact"
@@ -264,6 +272,7 @@
             <column name="consent_artefact_id"/>
         </createIndex>
     </changeSet>
+
     <changeSet id="202002130244" author="Chethan" context="POC">
         <createIndex indexName="idx_hip_ca_request_id"
                      tableName="hip_consent_artefact">
@@ -398,7 +407,7 @@
     </changeSet>
 
 
-    <changeSet id="2020312798922" author="Leela, Zafar" context="POC">
+    <changeSet id="20203124985642" author="Leela, Zafar" context="POC">
         <preConditions>
             <not>
                 <tableExists tableName="locked_users"/>
@@ -464,14 +473,6 @@
         <addColumn tableName="health_info_notification">
             <column name="request_id" type="VARCHAR(50)" defaultValue="">
                 <constraints nullable="false" />
-            </column>
-        </addColumn>
-    </changeSet>
-
-    <changeSet id="202004271221" author="ajayvk" context="POC">
-        <addColumn tableName="patient">
-            <column name="unverified_identifiers" type="JSON">
-                <constraints nullable="true" />
             </column>
         </addColumn>
     </changeSet>
