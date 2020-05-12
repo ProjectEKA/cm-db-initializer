@@ -477,4 +477,40 @@
         </addColumn>
     </changeSet>
 
+    <changeSet id="202003301500" author="dheeraj-gayatri" context="POC">
+        <preConditions>
+            <not>
+                <tableExists tableName="otp_attempt" />
+            </not>
+        </preConditions>
+        <comment>Add otp_attempt table</comment>
+
+        <createTable tableName="otp_attempt">
+            <column name="id" autoIncrement="true" type="BIGINT">
+                <constraints primaryKey="true" />
+            </column>
+            <column name="session_id" type="VARCHAR(50)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="cm_id" type="VARCHAR(50)">
+                <constraints nullable="true" />
+            </column>
+            <column name="identifier_type" type="VARCHAR(50)">
+                <constraints nullable="false" />
+            </column>
+            <column name="identifier_value" type="VARCHAR(50)">
+                <constraints nullable="false" />
+            </column>
+            <column name="attempt_at" type="DATETIME" defaultValueDate="timezone('utc'::text, now())">
+                <constraints nullable="false" />
+            </column>
+            <column name="status" type="VARCHAR(50)">
+                <constraints nullable="false" />
+            </column>
+            <column name="action" type="VARCHAR(50)">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+    </changeSet>
+    
 </databaseChangeLog>
