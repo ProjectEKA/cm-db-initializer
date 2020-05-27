@@ -512,5 +512,16 @@
             </column>
         </createTable>
     </changeSet>
-    
+
+    <changeSet id="202006260631" author="Dheeraj" context="POC">
+
+        <renameColumn tableName="locked_users" oldColumnName="locked_time" newColumnName="date_modified" />
+        <renameColumn tableName="locked_users" oldColumnName="first_invalid_attempt_time" newColumnName="date_created" />
+        <modifyDataType tableName="locked_users" columnName="date_modified" newDataType="DATETIME"/>
+        <addDefaultValue tableName="locked_users" columnName="date_modified" defaultValueDate="timezone('utc'::text, now())" />
+        <modifyDataType tableName="locked_users" columnName="date_created" newDataType="DATETIME"/>
+        <addDefaultValue tableName="locked_users" columnName="date_created" defaultValueDate="timezone('utc'::text, now())" />
+        <addDefaultValue tableName="locked_users" columnName="invalid_attempts" defaultValueNumeric="1" />
+    </changeSet>
+
 </databaseChangeLog>
