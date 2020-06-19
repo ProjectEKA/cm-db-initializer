@@ -438,7 +438,7 @@
             </column>
         </createTable>
     </changeSet>
-  
+
     <changeSet author="Apoorva" id="202004231710">
         <renameColumn newColumnName="transaction_id"
                       oldColumnName="request_id"
@@ -522,6 +522,14 @@
         <modifyDataType tableName="locked_users" columnName="date_created" newDataType="DATETIME"/>
         <addDefaultValue tableName="locked_users" columnName="date_created" defaultValueDate="timezone('utc'::text, now())" />
         <addDefaultValue tableName="locked_users" columnName="invalid_attempts" defaultValueNumeric="1" />
+    </changeSet>
+
+    <changeSet author="Dheeraj_Mahendra" id="202006161423">
+        <addColumn tableName="data_flow_request">
+            <column name="status" type="VARCHAR(50)" defaultValue="PENDING">
+                <constraints nullable="false" />
+            </column>
+        </addColumn>
     </changeSet>
 
 </databaseChangeLog>
