@@ -532,4 +532,28 @@
         </addColumn>
     </changeSet>
 
+    <changeSet id="202006231606" author="dheeraj-zafar" context="POC">
+        <preConditions>
+            <not>
+                <tableExists tableName="consent_notification" />
+            </not>
+        </preConditions>
+        <comment>Add consent_notification table</comment>
+
+        <createTable tableName="consent_notification">
+            <column name="id" autoIncrement="true" type="BIGINT">
+                <constraints primaryKey="true" />
+            </column>
+            <column name="consent_id" type="VARCHAR(50)">
+            </column>
+            <column name="status" type="VARCHAR(50)">
+            </column>
+            <column name="receiver" type="VARCHAR(50)">
+            </column>
+            <column name="date_created" type="DATETIME" defaultValueDate="timezone('utc'::text, now())">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+    </changeSet>
+
 </databaseChangeLog>
