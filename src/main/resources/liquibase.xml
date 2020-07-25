@@ -556,4 +556,29 @@
         </createTable>
     </changeSet>
 
+    <changeSet id="202007251238" author="Neeraj/Sangita" context="POC">
+        <preConditions>
+            <not>
+                <tableExists tableName="user_auth_session"/>
+            </not>
+        </preConditions>
+        <comment>Add UserAuthSession table</comment>
+
+        <createTable tableName="user_auth_session">
+            <column name="session_id" type="VARCHAR(50)">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="hip_id" type="VARCHAR(50)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="health_id" type="VARCHAR(50)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="expiry" type="DATETIME">
+                <constraints nullable="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+
 </databaseChangeLog>
