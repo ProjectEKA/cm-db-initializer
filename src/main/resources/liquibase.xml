@@ -556,7 +556,7 @@
         </createTable>
     </changeSet>
 
-    <changeSet id="202007251238" author="Neeraj/Sangita" context="POC">
+    <changeSet id="202007261645" author="Neeraj/Sangita" context="POC">
         <preConditions>
             <not>
                 <tableExists tableName="user_auth_session"/>
@@ -571,7 +571,7 @@
             <column name="hip_id" type="VARCHAR(50)">
                 <constraints nullable="true"/>
             </column>
-            <column name="health_id" type="VARCHAR(50)">
+            <column name="patient_id" type="VARCHAR(50)">
                 <constraints nullable="true"/>
             </column>
             <column name="expiry" type="DATETIME">
