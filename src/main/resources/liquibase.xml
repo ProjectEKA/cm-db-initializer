@@ -580,5 +580,28 @@
         </createTable>
     </changeSet>
 
+    <changeSet id="202007272025" author="neeraj/sangita" context="POC">
+        <preConditions>
+            <not>
+                <tableExists tableName="hip_init_link_request"/>
+            </not>
+        </preConditions>
+        <comment>Add hip_init_link_request table</comment>
+
+        <createTable tableName="hip_init_link_request">
+            <column name="transaction_id" type="VARCHAR(50)">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="patient" type="JSON">
+                <constraints nullable="true"/>
+            </column>
+            <column name="purpose" type="VARCHAR(50)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="requester" type="JSON">
+                <constraints nullable="true"/>
+            </column>
+        </createTable>
+    </changeSet>
 
 </databaseChangeLog>
