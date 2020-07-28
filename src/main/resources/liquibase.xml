@@ -555,6 +555,30 @@
             </column>
         </createTable>
     </changeSet>
+    <changeSet id="202007060140" author="Neeraj" context="POC">
+        <addColumn tableName="patient">
+            <column name="date_of_birth" type="BIGINT">
+                <constraints nullable="true" unique="false"/>
+            </column>
+        </addColumn>
+        <addColumn tableName="patient">
+            <column name="month_of_birth" type="BIGINT">
+                <constraints nullable="true" unique="false"/>
+            </column>
+        </addColumn>
+        <addColumn tableName="patient">
+            <column name="middle_name" type="VARCHAR(33)">
+                <constraints nullable="true" unique="false"/>
+            </column>
+        </addColumn>
+        <addColumn tableName="patient">
+            <column name="last_name" type="VARCHAR(33)">
+                <constraints nullable="true" unique="false"/>
+            </column>
+        </addColumn>
+        <renameColumn tableName="patient" oldColumnName="name" newColumnName="first_name"/>
+        <modifyDataType tableName="patient" columnName="first_name" newDataType="VARCHAR(33)"/>
+    </changeSet>
 
     <changeSet id="202007261645" author="Neeraj/Sangita" context="POC">
         <preConditions>
