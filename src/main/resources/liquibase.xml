@@ -580,7 +580,7 @@
         <modifyDataType tableName="patient" columnName="first_name" newDataType="VARCHAR(33)"/>
     </changeSet>
 
-    <changeSet id="202007261645" author="Neeraj/Sangita" context="POC">
+    <changeSet id="202007271611" author="Neeraj/Sangita" context="POC">
         <preConditions>
             <not>
                 <tableExists tableName="user_auth_session"/>
@@ -598,7 +598,16 @@
             <column name="patient_id" type="VARCHAR(50)">
                 <constraints nullable="true"/>
             </column>
+            <column name="purpose" type="VARCHAR(50)">
+                <constraints nullable="true"/>
+            </column>
             <column name="expiry" type="DATETIME">
+                <constraints nullable="true"/>
+            </column>
+            <column name="repeat" type="BIGINT">
+                <constraints nullable="true"/>
+            </column>
+            <column name="current_counter" type="BIGINT">
                 <constraints nullable="true"/>
             </column>
         </createTable>
