@@ -580,15 +580,15 @@
         <modifyDataType tableName="patient" columnName="first_name" newDataType="VARCHAR(33)"/>
     </changeSet>
 
-    <changeSet id="202007271611" author="Neeraj/Sangita" context="POC">
+    <changeSet id="202007291355" author="Neeraj/Sangita" context="POC">
         <preConditions>
             <not>
-                <tableExists tableName="user_auth_session"/>
+                <tableExists tableName="authz_hip_actions"/>
             </not>
         </preConditions>
-        <comment>Add UserAuthSession table</comment>
+        <comment>Add authz_hip_actions table</comment>
 
-        <createTable tableName="user_auth_session">
+        <createTable tableName="authz_hip_actions">
             <column name="session_id" type="VARCHAR(50)">
                 <constraints primaryKey="true"/>
             </column>
@@ -608,30 +608,6 @@
                 <constraints nullable="true"/>
             </column>
             <column name="current_counter" type="BIGINT">
-                <constraints nullable="true"/>
-            </column>
-        </createTable>
-    </changeSet>
-
-    <changeSet id="202007272025" author="neeraj/sangita" context="POC">
-        <preConditions>
-            <not>
-                <tableExists tableName="hip_init_link_request"/>
-            </not>
-        </preConditions>
-        <comment>Add hip_init_link_request table</comment>
-
-        <createTable tableName="hip_init_link_request">
-            <column name="transaction_id" type="VARCHAR(50)">
-                <constraints primaryKey="true"/>
-            </column>
-            <column name="patient" type="JSON">
-                <constraints nullable="true"/>
-            </column>
-            <column name="purpose" type="VARCHAR(50)">
-                <constraints nullable="true"/>
-            </column>
-            <column name="requester" type="JSON">
                 <constraints nullable="true"/>
             </column>
         </createTable>
