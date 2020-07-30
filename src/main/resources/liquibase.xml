@@ -579,7 +579,21 @@
         <renameColumn tableName="patient" oldColumnName="name" newColumnName="first_name"/>
         <modifyDataType tableName="patient" columnName="first_name" newDataType="VARCHAR(33)"/>
     </changeSet>
-
+    <changeSet id="202029072040" author="gayatri, angshu" context="v1">
+        <addColumn tableName="link">
+            <column name="initiated_by" type="VARCHAR(10)">
+                <constraints nullable="true" unique="false"/>
+            </column>
+        </addColumn>
+    </changeSet>
+    <changeSet id="202029072038" author="gayatri, angshu" context="v1">
+        <update tableName="link">
+            <column  name="initiated_by" value="CM"/>
+        </update>
+    </changeSet>
+    <changeSet id="202029072050" author="gayatri, angshu" context="v1">
+        <addNotNullConstraint  columnName="initiated_by" tableName="link"/>
+    </changeSet>
     <changeSet id="202007291355" author="Neeraj/Sangita" context="POC">
         <preConditions>
             <not>
@@ -612,5 +626,4 @@
             </column>
         </createTable>
     </changeSet>
-
 </databaseChangeLog>
