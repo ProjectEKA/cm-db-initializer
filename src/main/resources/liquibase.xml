@@ -594,4 +594,36 @@
     <changeSet id="202029072050" author="gayatri, angshu" context="v1">
         <addNotNullConstraint  columnName="initiated_by" tableName="link"/>
     </changeSet>
+    <changeSet id="202007291355" author="Neeraj/Sangita" context="POC">
+        <preConditions>
+            <not>
+                <tableExists tableName="authz_hip_actions"/>
+            </not>
+        </preConditions>
+        <comment>Add authz_hip_actions table</comment>
+
+        <createTable tableName="authz_hip_actions">
+            <column name="session_id" type="VARCHAR(50)">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="hip_id" type="VARCHAR(50)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="patient_id" type="VARCHAR(50)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="purpose" type="VARCHAR(50)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="expiry" type="DATETIME">
+                <constraints nullable="true"/>
+            </column>
+            <column name="repeat" type="BIGINT">
+                <constraints nullable="true"/>
+            </column>
+            <column name="current_counter" type="BIGINT">
+                <constraints nullable="true"/>
+            </column>
+        </createTable>
+    </changeSet>
 </databaseChangeLog>
