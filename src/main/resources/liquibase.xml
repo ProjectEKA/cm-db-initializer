@@ -626,4 +626,15 @@
             </column>
         </createTable>
     </changeSet>
+    <changeSet id="202031071932" author="angshu" context="v1">
+        <addColumn tableName="link">
+            <column name="date_modified" type="DATETIME" defaultValueDate="CURRENT_TIMESTAMP">
+            </column>
+        </addColumn>
+    </changeSet>
+    <changeSet id="202031071933" author="angshu" context="v1">
+        <renameColumn  newColumnName="date_created"
+                       oldColumnName="timestamp"
+                       tableName="link"/>
+    </changeSet>
 </databaseChangeLog>
