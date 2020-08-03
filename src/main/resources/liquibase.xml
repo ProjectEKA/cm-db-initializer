@@ -644,4 +644,10 @@
             </column>
         </addColumn>
     </changeSet>
+    <changeSet id="202003081700" author="Neeraj" context="v1">
+        <addColumn tableName="authz_hip_actions">
+            <column name="date_modified" type="DATETIME" defaultValueDate="CURRENT_TIMESTAMP">
+            </column>
+        </addColumn>
+    </changeSet>
 </databaseChangeLog>
