@@ -637,4 +637,11 @@
                        oldColumnName="timestamp"
                        tableName="link"/>
     </changeSet>
+    <changeSet id="202003081345" author="Neeraj" context="v1">
+        <addColumn tableName="authz_hip_actions">
+            <column name="date_created" type="DATETIME" defaultValueDate="CURRENT_TIMESTAMP">
+                <constraints nullable="true"/>
+            </column>
+        </addColumn>
+    </changeSet>
 </databaseChangeLog>
