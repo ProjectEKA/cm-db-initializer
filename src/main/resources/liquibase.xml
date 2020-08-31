@@ -684,4 +684,20 @@
                    schemaName="public"
                    tableName="patient"/>
     </changeSet>
+    <changeSet author="ganesan" id="202008312015">
+        <preConditions>
+            <tableExists tableName="data_flow_request"/>
+        </preConditions>
+        <dropTable cascadeConstraints="true"
+                   schemaName="public"
+                   tableName="data_flow_request"/>
+    </changeSet>
+    <changeSet author="ganesan" id="202008312016">
+        <preConditions>
+            <tableExists tableName="health_info_notification"/>
+        </preConditions>
+        <dropTable cascadeConstraints="true"
+                   schemaName="public"
+                   tableName="health_info_notification"/>
+    </changeSet>
 </databaseChangeLog>
