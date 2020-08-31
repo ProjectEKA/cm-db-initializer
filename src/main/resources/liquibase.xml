@@ -448,7 +448,7 @@
     <changeSet id="202004231715" author="apoorva" context="POC">
         <addColumn tableName="discovery_request">
             <column name="request_id" type="VARCHAR(50)" defaultValue="">
-                <constraints nullable="false" />
+                <constraints nullable="false"/>
             </column>
         </addColumn>
     </changeSet>
@@ -456,7 +456,7 @@
     <changeSet id="202004241140" author="apoorva" context="POC">
         <addColumn tableName="link_reference">
             <column name="request_id" type="VARCHAR(50)" defaultValue="">
-                <constraints nullable="false" />
+                <constraints nullable="false"/>
             </column>
         </addColumn>
     </changeSet>
@@ -464,7 +464,7 @@
     <changeSet id="202004241330" author="apoorva" context="POC">
         <addColumn tableName="transaction_pin">
             <column name="request_id" type="VARCHAR(50)" defaultValue="">
-                <constraints nullable="false" />
+                <constraints nullable="false"/>
             </column>
         </addColumn>
     </changeSet>
@@ -472,7 +472,7 @@
     <changeSet author="Apoorva" id="202004271430">
         <addColumn tableName="health_info_notification">
             <column name="request_id" type="VARCHAR(50)" defaultValue="">
-                <constraints nullable="false" />
+                <constraints nullable="false"/>
             </column>
         </addColumn>
     </changeSet>
@@ -480,54 +480,56 @@
     <changeSet id="202003301500" author="dheeraj-gayatri" context="POC">
         <preConditions>
             <not>
-                <tableExists tableName="otp_attempt" />
+                <tableExists tableName="otp_attempt"/>
             </not>
         </preConditions>
         <comment>Add otp_attempt table</comment>
 
         <createTable tableName="otp_attempt">
             <column name="id" autoIncrement="true" type="BIGINT">
-                <constraints primaryKey="true" />
+                <constraints primaryKey="true"/>
             </column>
             <column name="session_id" type="VARCHAR(50)">
                 <constraints nullable="true"/>
             </column>
             <column name="cm_id" type="VARCHAR(50)">
-                <constraints nullable="true" />
+                <constraints nullable="true"/>
             </column>
             <column name="identifier_type" type="VARCHAR(50)">
-                <constraints nullable="false" />
+                <constraints nullable="false"/>
             </column>
             <column name="identifier_value" type="VARCHAR(50)">
-                <constraints nullable="false" />
+                <constraints nullable="false"/>
             </column>
             <column name="attempt_at" type="DATETIME" defaultValueDate="timezone('utc'::text, now())">
-                <constraints nullable="false" />
+                <constraints nullable="false"/>
             </column>
             <column name="status" type="VARCHAR(50)">
-                <constraints nullable="false" />
+                <constraints nullable="false"/>
             </column>
             <column name="action" type="VARCHAR(50)">
-                <constraints nullable="false" />
+                <constraints nullable="false"/>
             </column>
         </createTable>
     </changeSet>
 
     <changeSet id="202006260631" author="Dheeraj" context="POC">
 
-        <renameColumn tableName="locked_users" oldColumnName="locked_time" newColumnName="date_modified" />
-        <renameColumn tableName="locked_users" oldColumnName="first_invalid_attempt_time" newColumnName="date_created" />
+        <renameColumn tableName="locked_users" oldColumnName="locked_time" newColumnName="date_modified"/>
+        <renameColumn tableName="locked_users" oldColumnName="first_invalid_attempt_time" newColumnName="date_created"/>
         <modifyDataType tableName="locked_users" columnName="date_modified" newDataType="DATETIME"/>
-        <addDefaultValue tableName="locked_users" columnName="date_modified" defaultValueDate="timezone('utc'::text, now())" />
+        <addDefaultValue tableName="locked_users" columnName="date_modified"
+                         defaultValueDate="timezone('utc'::text, now())"/>
         <modifyDataType tableName="locked_users" columnName="date_created" newDataType="DATETIME"/>
-        <addDefaultValue tableName="locked_users" columnName="date_created" defaultValueDate="timezone('utc'::text, now())" />
-        <addDefaultValue tableName="locked_users" columnName="invalid_attempts" defaultValueNumeric="1" />
+        <addDefaultValue tableName="locked_users" columnName="date_created"
+                         defaultValueDate="timezone('utc'::text, now())"/>
+        <addDefaultValue tableName="locked_users" columnName="invalid_attempts" defaultValueNumeric="1"/>
     </changeSet>
 
     <changeSet author="Dheeraj_Mahendra" id="202006161423">
         <addColumn tableName="data_flow_request">
             <column name="status" type="VARCHAR(50)" defaultValue="PENDING">
-                <constraints nullable="false" />
+                <constraints nullable="false"/>
             </column>
         </addColumn>
     </changeSet>
@@ -535,14 +537,14 @@
     <changeSet id="202006231606" author="dheeraj-zafar" context="POC">
         <preConditions>
             <not>
-                <tableExists tableName="consent_notification" />
+                <tableExists tableName="consent_notification"/>
             </not>
         </preConditions>
         <comment>Add consent_notification table</comment>
 
         <createTable tableName="consent_notification">
             <column name="id" autoIncrement="true" type="BIGINT">
-                <constraints primaryKey="true" />
+                <constraints primaryKey="true"/>
             </column>
             <column name="consent_id" type="VARCHAR(50)">
             </column>
@@ -551,7 +553,7 @@
             <column name="receiver" type="VARCHAR(50)">
             </column>
             <column name="date_created" type="DATETIME" defaultValueDate="timezone('utc'::text, now())">
-                <constraints nullable="false" />
+                <constraints nullable="false"/>
             </column>
         </createTable>
     </changeSet>
@@ -588,11 +590,11 @@
     </changeSet>
     <changeSet id="202029072038" author="gayatri, angshu" context="v1">
         <update tableName="link">
-            <column  name="initiated_by" value="CM"/>
+            <column name="initiated_by" value="CM"/>
         </update>
     </changeSet>
     <changeSet id="202029072050" author="gayatri, angshu" context="v1">
-        <addNotNullConstraint  columnName="initiated_by" tableName="link"/>
+        <addNotNullConstraint columnName="initiated_by" tableName="link"/>
     </changeSet>
     <changeSet id="202007291355" author="Neeraj/Sangita" context="POC">
         <preConditions>
@@ -633,9 +635,9 @@
         </addColumn>
     </changeSet>
     <changeSet id="202031071933" author="angshu" context="v1">
-        <renameColumn  newColumnName="date_created"
-                       oldColumnName="timestamp"
-                       tableName="link"/>
+        <renameColumn newColumnName="date_created"
+                      oldColumnName="timestamp"
+                      tableName="link"/>
     </changeSet>
     <changeSet id="202003081345" author="Neeraj" context="v1">
         <addColumn tableName="authz_hip_actions">
@@ -649,5 +651,37 @@
             <column name="date_modified" type="DATETIME" defaultValueDate="CURRENT_TIMESTAMP">
             </column>
         </addColumn>
+    </changeSet>
+    <changeSet author="ganesan" id="202008311601">
+        <preConditions>
+            <tableExists tableName="transaction_pin"/>
+        </preConditions>
+        <dropTable cascadeConstraints="true"
+                   schemaName="public"
+                   tableName="transaction_pin"/>
+    </changeSet>
+    <changeSet author="ganesan" id="202008311610">
+        <preConditions>
+            <tableExists tableName="otp_attempt"/>
+        </preConditions>
+        <dropTable cascadeConstraints="true"
+                   schemaName="public"
+                   tableName="otp_attempt"/>
+    </changeSet>
+    <changeSet author="ganesan" id="202008311613">
+        <preConditions>
+            <tableExists tableName="locked_users"/>
+        </preConditions>
+        <dropTable cascadeConstraints="true"
+                   schemaName="public"
+                   tableName="locked_users"/>
+    </changeSet>
+    <changeSet author="ganesan" id="202008311615">
+        <preConditions>
+            <tableExists tableName="patient"/>
+        </preConditions>
+        <dropTable cascadeConstraints="true"
+                   schemaName="public"
+                   tableName="patient"/>
     </changeSet>
 </databaseChangeLog>
