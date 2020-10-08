@@ -718,6 +718,9 @@
             <column name="patient_id" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
+            <column name="requester_type" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
             <column name="status" type="VARCHAR(20)">
                 <constraints nullable="false"/>
             </column>
