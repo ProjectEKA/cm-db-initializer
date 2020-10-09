@@ -735,4 +735,14 @@
             </column>
         </createTable>
     </changeSet>
+    <changeSet id="202010102138" author="angshu"  context="auth-api">
+        <renameColumn  newColumnName="requester_id" oldColumnName="hip_id"  tableName="authz_hip_actions"/>
+    </changeSet>
+    <changeSet id="202010102140" author="angshu"  context="auth-api">
+        <addColumn tableName="authz_hip_actions">
+            <column name="requester_type" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+    </changeSet>
 </databaseChangeLog>
